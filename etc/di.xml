@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\OfflinePayments\Model\Purchaseorder">
+        <plugin name="pyxl_checkout_upload_field_purchase_order_plugin"
+                type="Pyxl\CheckoutUploadField\Plugin\OfflinePayments\Model\PurchaseorderPlugin" sortOrder="1" />
+    </type>
+    <type name="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">po_files/tmp</argument>
+            <argument name="basePath" xsi:type="string">po_files</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="png" xsi:type="string">png</item>
+                <item name="pdf" xsi:type="string">pdf</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magento\OfflinePayments\Block\Info\Purchaseorder"
+                type="Pyxl\CheckoutUploadField\Block\Info\Purchaseorder" />
+</config>

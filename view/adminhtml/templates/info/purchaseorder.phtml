@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/**
+ * @var $block \Pyxl\CheckoutUploadField\Block\Info\Purchaseorder
+ */
+?>
+<div class="order-payment-method-name"><?php echo $block->escapeHtml($block->getMethod()->getTitle()) ?></div>
+<table class="data-table admin__table-secondary">
+    <tr>
+        <th><?php echo $block->escapeHtml(__('Purchase Order Number')) ?>:</th>
+        <td><?php echo $block->escapeHtml($block->getPoNumber()) ?></td>
+    </tr>
+    <tr>
+        <th><?php echo $block->escapeHtml(__('Purchase Order File')) ?>:</th>
+        <td><?php echo $block->getPurchaseorderFileLink() ?: __('N/A') ?></td>
+    </tr>
+    <tr>
+        <th><?php echo $block->escapeHtml(__('Finance Contact')) ?>:</th>
+        <td><?php echo $block->escapeHtml($this->getInfo()->getAdditionalInformation('po_contact')) ?: __('N/A') ?></td>
+    </tr>
+</table>
