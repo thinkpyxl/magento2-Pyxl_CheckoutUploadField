@@ -32,7 +32,7 @@ class Index extends \Magento\Framework\App\Action\Action
     protected $jsonSerializer;
 
     /**
-     * @var \Magento\Catalog\Model\ImageUploader
+     * @var \Pyxl\CheckoutUploadField\Model\ImageUploader
      */
     protected $imageUploader;
 
@@ -55,7 +55,7 @@ class Index extends \Magento\Framework\App\Action\Action
      * @param \Magento\Framework\App\Action\Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      * @param \Magento\Framework\Serialize\Serializer\Json $jsonSerializer
-     * @param \Magento\Catalog\Model\ImageUploader $imageUploader
+     * @param \Pyxl\CheckoutUploadField\Model\ImageUploader $imageUploader
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Psr\Log\LoggerInterface $logger
      */
@@ -63,7 +63,7 @@ class Index extends \Magento\Framework\App\Action\Action
         \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
         \Magento\Framework\Serialize\Serializer\Json $jsonSerializer,
-        \Magento\Catalog\Model\ImageUploader $imageUploader,
+        \Pyxl\CheckoutUploadField\Model\ImageUploader $imageUploader,
         \Magento\Checkout\Model\Session $checkoutSession,
         \Psr\Log\LoggerInterface $logger
     ) {
@@ -83,18 +83,18 @@ class Index extends \Magento\Framework\App\Action\Action
 
         try {
             $result = $this->imageUploader->saveFileToTmpDir('files');
+
+            // Save to quote
+            $quote = $this->checkoutSession->getQuote();
+            $quoteAdditionalData = $quote->getAdditionalData() ?: [];
+
+            $this->baseTmpPath = $this->imageUploader->getBaseTmpPath();
+            $file_path = $this->baseTmpPath . '/' . $result['file'];
+
+            array_push($quoteAdditionalData, json_encode(['po_filename' => $file_path]));
         } catch (\Exception $e) {
             $result = ['error' => $e->getMessage(), 'errorcode' => $e->getCode()];
         }
-
-        // Save to quote
-        $quote = $this->checkoutSession->getQuote();
-        $quoteAdditionalData = $quote->getAdditionalData() ?: [];
-
-        $this->baseTmpPath = $this->imageUploader->getBaseTmpPath();
-        $file_path = $this->baseTmpPath . '/' . $result['file'];
-
-        array_push($quoteAdditionalData, json_encode(['po_filename' => $file_path]));
 
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }

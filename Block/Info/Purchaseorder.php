@@ -21,7 +21,7 @@ class Purchaseorder extends \Magento\Payment\Block\Info
     protected $_template = 'Pyxl_CheckoutUploadField::info/purchaseorder.phtml';
 
     /**
-     * @var \Magento\Catalog\Model\ImageUploader
+     * @var \Pyxl\CheckoutUploadField\Model\ImageUploader
      */
     private $imageUploader;
 
@@ -35,13 +35,13 @@ class Purchaseorder extends \Magento\Payment\Block\Info
 	/**
 	 * Purchaseorder constructor.
 	 *
-	 * @param \Magento\Catalog\Model\ImageUploader $imageUploader
+	 * @param \Pyxl\CheckoutUploadField\Model\ImageUploader $imageUploader
 	 * @param \Magento\Framework\Filesystem $filesystem
 	 * @param Template\Context $context
 	 * @param array $data
 	 */
     public function __construct(
-        \Magento\Catalog\Model\ImageUploader $imageUploader,
+        \Pyxl\CheckoutUploadField\Model\ImageUploader $imageUploader,
         \Magento\Framework\Filesystem $filesystem,
         Template\Context $context,
         array $data = []
@@ -94,7 +94,7 @@ class Purchaseorder extends \Magento\Payment\Block\Info
 	 */
     public function getPurchaseorderFileUrl()
     {
-        $mediaPath = $this ->_storeManager-> getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+        $mediaPath = $this ->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
         $uploadsPath = $this->imageUploader->getBasePath();
         $filename = $this->getInfo()->getAdditionalInformation('po_filename');
 

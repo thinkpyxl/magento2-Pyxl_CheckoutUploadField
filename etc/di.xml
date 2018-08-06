@@ -10,7 +10,7 @@
         <plugin name="pyxl_checkout_upload_field_purchase_order_plugin"
                 type="Pyxl\CheckoutUploadField\Plugin\OfflinePayments\Model\PurchaseorderPlugin" sortOrder="1" />
     </type>
-    <type name="Magento\Catalog\Model\ImageUploader">
+    <type name="Pyxl\CheckoutUploadField\Model\ImageUploader">
         <arguments>
             <argument name="baseTmpPath" xsi:type="string">po_files/tmp</argument>
             <argument name="basePath" xsi:type="string">po_files</argument>

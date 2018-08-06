@@ -9,12 +9,12 @@
 
 namespace Pyxl\CheckoutUploadField\Plugin\OfflinePayments\Model;
 
-use Magento\Catalog\Model\ImageUploader;
+use Pyxl\CheckoutUploadField\Model\ImageUploader;
 
 class PurchaseorderPlugin
 {
     /**
-     * @var \Magento\Catalog\Model\ImageUploader
+     * @var \Pyxl\CheckoutUploadField\Model\ImageUploader
      */
     private $imageUploader;
 
