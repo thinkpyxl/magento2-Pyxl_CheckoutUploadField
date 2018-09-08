@@ -38,7 +38,12 @@
                                data-bind='
                                 attr: {title: $t("Purchase Order Number")},
                                 value: purchaseOrderNumber'
-                               class="input-text"/>
+                               class="input-text"
+                               maxlength="32"
+                        />
+                    </div>
+                    <div class="field-note">
+                        <span><!-- ko i18n: '32 character limit.' --><!-- /ko --></span>
                     </div>
                 </div>
                 <!-- ko foreach: getRegion('uploader') -->
@@ -55,7 +60,12 @@
                                data-bind='
                                 attr: {title: $t("Purchase Order Finance Contact")},
                                 value: purchaseOrderContact'
-                               class="input-text"/>
+                               class="input-text"
+                               maxlength="240"
+                        />
+                        <div class="field-note">
+                            <span><!-- ko i18n: '240 character limit.' --><!-- /ko --></span>
+                        </div>
                     </div>
                 </div>
             </fieldset>
