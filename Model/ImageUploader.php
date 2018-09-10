@@ -35,7 +35,9 @@ class ImageUploader extends \Magento\Catalog\Model\ImageUploader
         'image/jpeg',
         'image/gif',
         'image/png',
-        'application/pdf'
+        'application/pdf',
+        'application/msword', // doc
+        'application/octet-stream' // docx
     ];
 
     /**

@@ -50,7 +50,7 @@ define([
                     parent: this.name,
                     name: this.name + '.uploader',
                     label: 'Upload Purchase Order',
-                    allowedExtensions: 'jpg jpeg png pdf',
+                    allowedExtensions: 'jpg jpeg png pdf doc docx',
                     placeholderType: 'image',
                     component: 'Magento_Ui/js/form/element/file-uploader',
                     template: 'Pyxl_CheckoutUploadField/uploader',

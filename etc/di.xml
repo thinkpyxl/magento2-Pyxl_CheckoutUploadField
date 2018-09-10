@@ -19,6 +19,8 @@
                 <item name="jpeg" xsi:type="string">jpeg</item>
                 <item name="png" xsi:type="string">png</item>
                 <item name="pdf" xsi:type="string">pdf</item>
+                <item name="doc" xsi:type="string">doc</item>
+                <item name="docx" xsi:type="string">docx</item>
             </argument>
         </arguments>
     </type>
