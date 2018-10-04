@@ -49,7 +49,7 @@ define([
                 var fileUploaderComponent = {
                     parent: this.name,
                     name: this.name + '.uploader',
-                    label: 'Upload Purchase Order',
+                    label: 'Select file to upload',
                     allowedExtensions: 'jpg jpeg png pdf doc docx',
                     placeholderType: 'image',
                     component: 'Magento_Ui/js/form/element/file-uploader',
@@ -57,6 +57,7 @@ define([
                     previewTmpl: 'Pyxl_CheckoutUploadField/preview',
                     displayArea: 'uploader',
                     uploaderConfig: {url: '/uploader/file/index'},
+                    required: true,
                     addFile: function(file) {
                         file = this.processFile(file);
 

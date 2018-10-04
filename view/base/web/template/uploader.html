@@ -5,8 +5,11 @@
  */
 -->
 
-<div class="field" visible="visible" css="$data.additionalClasses">
-    <div class="field-control" css="'_with-tooltip': $data.tooltip">
+<div class="field required" visible="visible" css="$data.additionalClasses">
+    <label for="uid" class="label">
+        <span><!-- ko i18n: 'Purchase Order File'--><!-- /ko --></span>
+    </label>
+    <div class="control" css="'_with-tooltip': $data.tooltip">
         <div class="file-uploader" data-role="drop-zone" css="_loading: isLoading">
             <div class="file-uploader-area">
                 <input name="files" type="file" afterRender="onElementRender" attr="id: uid, multiple: isMultipleFiles" disable="disabled" />
