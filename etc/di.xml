@@ -21,6 +21,8 @@
                 <item name="pdf" xsi:type="string">pdf</item>
                 <item name="doc" xsi:type="string">doc</item>
                 <item name="docx" xsi:type="string">docx</item>
+                <item name="xls" xsi:type="string">xls</item>
+                <item name="xlsx" xsi:type="string">xlsx</item>
             </argument>
         </arguments>
     </type>
