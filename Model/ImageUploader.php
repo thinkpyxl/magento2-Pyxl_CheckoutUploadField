@@ -37,7 +37,7 @@ class ImageUploader extends \Magento\Catalog\Model\ImageUploader
         'image/png',
         'application/pdf',
         'application/msword', // doc
-        'application/octet-stream', // docx
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // docx
         'application/vnd.ms-excel', //xls
         'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' //xlsx
     ];
